@@ -1,10 +1,10 @@
 :root {
   --black: #0a0a0a;
   --black-2: #121212;
-  --blue: #4da3ff;
-  --blue-dim: #1e4d8f;
-  --pink: #ff3fd8;
-  --pink-dim: #8f2270;
+  --blue: #335cff;
+  --blue-dim: #16224d;
+  --pink: #d6149e;
+  --pink-dim: #5c0a45;
   --white: #ededed;
   --grey: #7a7a7a;
 }
@@ -44,8 +44,8 @@ html, body {
   align-items: center;
   justify-content: center;
   background:
-    radial-gradient(ellipse at 20% 25%, rgba(77,163,255,0.18) 0%, transparent 45%),
-    radial-gradient(ellipse at 80% 35%, rgba(255,63,216,0.16) 0%, transparent 45%),
+    radial-gradient(ellipse at 20% 25%, rgba(51,92,255,0.16) 0%, transparent 45%),
+    radial-gradient(ellipse at 80% 35%, rgba(214,20,158,0.15) 0%, transparent 45%),
     radial-gradient(ellipse at 50% 30%, #1a1a1a 0%, var(--black) 70%);
   border-bottom: 1px solid var(--pink-dim);
   overflow: hidden;
@@ -58,7 +58,7 @@ html, body {
 }
 
 .logo {
-  font-family: 'Rubik Spray Paint', 'Bebas Neue', sans-serif;
+  font-family: 'Rubik Distressed', 'Bebas Neue', sans-serif;
   font-size: clamp(3.5rem, 13vw, 8.5rem);
   letter-spacing: 0.02em;
   color: var(--white);
@@ -88,7 +88,7 @@ main {
 }
 
 .section-title {
-  font-family: 'Rubik Spray Paint', 'Bebas Neue', sans-serif;
+  font-family: 'Rubik Distressed', 'Bebas Neue', sans-serif;
   letter-spacing: 0.05em;
   font-size: 1.6rem;
   color: var(--white);
@@ -107,7 +107,7 @@ main {
 }
 
 .track:hover {
-  background: linear-gradient(90deg, rgba(255,63,216,0.06), transparent);
+  background: linear-gradient(90deg, rgba(214,20,158,0.06), transparent);
 }
 
 .track-index {
@@ -128,14 +128,14 @@ main {
 }
 
 .track-title {
-  font-family: 'Rubik Spray Paint', 'Bebas Neue', sans-serif;
+  font-family: 'Rubik Distressed', 'Bebas Neue', sans-serif;
   font-weight: 400;
   font-size: 1.3rem;
   letter-spacing: 0.01em;
   line-height: 1.4;
   margin-bottom: 1.1rem;
   color: var(--white);
-  text-shadow: 0.02em 0.05em 2px rgba(255,63,216,0.35);
+  text-shadow: 0.02em 0.05em 2px rgba(214,20,158,0.35);
 }
 
 .player {
