@@ -1,20 +1,35 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// break the logo into letters and jitter each one slightly for a hand-sprayed feel
-const logo = document.querySelector('.logo');
-if (logo) {
-  const text = logo.textContent;
-  logo.textContent = '';
-  [...text].forEach((char) => {
+// break text into letters with a blue-to-pink neon glow, spray-can style
+const GLOW_FROM = [77, 163, 255]; // blue
+const GLOW_TO = [255, 63, 216]; // pink
+
+function lerpColor(a, b, t) {
+  return a.map((v, i) => Math.round(v + (b[i] - v) * t));
+}
+
+function spray(el, { jitter = false } = {}) {
+  if (!el) return;
+  const chars = [...el.textContent];
+  el.textContent = '';
+  chars.forEach((char, i) => {
     const span = document.createElement('span');
     span.className = 'letter';
     span.textContent = char;
-    const rotate = (Math.random() * 8 - 4).toFixed(2);
-    const rise = (Math.random() * 10 - 5).toFixed(2);
-    span.style.transform = `rotate(${rotate}deg) translateY(${rise}px)`;
-    logo.appendChild(span);
+    const t = chars.length > 1 ? i / (chars.length - 1) : 0;
+    const [r, g, b] = lerpColor(GLOW_FROM, GLOW_TO, t);
+    span.style.textShadow = `0 0 6px rgba(${r},${g},${b},0.95), 0 0 18px rgba(${r},${g},${b},0.55), 0 4px 16px rgba(${r},${g},${b},0.3)`;
+    if (jitter) {
+      const rotate = (Math.random() * 8 - 4).toFixed(2);
+      const rise = (Math.random() * 10 - 5).toFixed(2);
+      span.style.transform = `rotate(${rotate}deg) translateY(${rise}px)`;
+    }
+    el.appendChild(span);
   });
 }
+
+spray(document.querySelector('.logo'), { jitter: true });
+spray(document.querySelector('.section-title'));
 
 function formatTime(seconds) {
   if (!isFinite(seconds)) return '0:00';
