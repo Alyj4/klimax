@@ -1,5 +1,21 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// break the logo into letters and jitter each one slightly for a hand-sprayed feel
+const logo = document.querySelector('.logo');
+if (logo) {
+  const text = logo.textContent;
+  logo.textContent = '';
+  [...text].forEach((char) => {
+    const span = document.createElement('span');
+    span.className = 'letter';
+    span.textContent = char;
+    const rotate = (Math.random() * 8 - 4).toFixed(2);
+    const rise = (Math.random() * 10 - 5).toFixed(2);
+    span.style.transform = `rotate(${rotate}deg) translateY(${rise}px)`;
+    logo.appendChild(span);
+  });
+}
+
 function formatTime(seconds) {
   if (!isFinite(seconds)) return '0:00';
   const m = Math.floor(seconds / 60);
