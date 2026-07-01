@@ -1,8 +1,8 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
 // break text into letters with a blue-to-pink neon glow, spray-can style
-const GLOW_FROM = [51, 92, 255]; // blue
-const GLOW_TO = [214, 20, 158]; // pink
+const GLOW_FROM = [77, 163, 255]; // blue
+const GLOW_TO = [255, 63, 216]; // pink
 
 function lerpColor(a, b, t) {
   return a.map((v, i) => Math.round(v + (b[i] - v) * t));
@@ -20,8 +20,8 @@ function spray(el, { jitter = false } = {}) {
     const [r, g, b] = lerpColor(GLOW_FROM, GLOW_TO, t);
     span.style.textShadow = `0 0 6px rgba(${r},${g},${b},0.95), 0 0 18px rgba(${r},${g},${b},0.55), 0 4px 16px rgba(${r},${g},${b},0.3)`;
     if (jitter) {
-      const rotate = (Math.random() * 5 - 2.5).toFixed(2);
-      const rise = (Math.random() * 6 - 3).toFixed(2);
+      const rotate = (Math.random() * 8 - 4).toFixed(2);
+      const rise = (Math.random() * 10 - 5).toFixed(2);
       span.style.transform = `rotate(${rotate}deg) translateY(${rise}px)`;
     }
     el.appendChild(span);
