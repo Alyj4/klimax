@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KLIMAX</title>
+<meta name="description" content="KLIMAX — original tracks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="noise"></div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <h1 class="logo">KLIMAX</h1>
+    <p class="tagline">sound built to cut</p>
+  </div>
+  <div class="hero-edge"></div>
+</header>
+
+<main>
+  <section class="tracks" id="tracks">
+    <h2 class="section-title">TRACKS</h2>
+
+    <div class="track" data-track>
+      <div class="track-index">01</div>
+      <div class="track-body">
+        <h3 class="track-title">Beautiful and Alone</h3>
+        <div class="player">
+          <button class="play-btn" aria-label="Play">
+            <span class="icon-play">&#9654;</span>
+            <span class="icon-pause">&#10074;&#10074;</span>
+          </button>
+          <div class="progress">
+            <div class="progress-fill"></div>
+          </div>
+          <div class="time">
+            <span class="time-current">0:00</span>
+            <span class="time-sep">/</span>
+            <span class="time-duration">0:00</span>
+          </div>
+        </div>
+        <audio src="assets/audio/beautiful-and-alone.mp3" preload="metadata"></audio>
+      </div>
+    </div>
+
+    <div class="track" data-track>
+      <div class="track-index">02</div>
+      <div class="track-body">
+        <h3 class="track-title">don&rsquo;t take my kindness for weakness</h3>
+        <div class="player">
+          <button class="play-btn" aria-label="Play">
+            <span class="icon-play">&#9654;</span>
+            <span class="icon-pause">&#10074;&#10074;</span>
+          </button>
+          <div class="progress">
+            <div class="progress-fill"></div>
+          </div>
+          <div class="time">
+            <span class="time-current">0:00</span>
+            <span class="time-sep">/</span>
+            <span class="time-duration">0:00</span>
+          </div>
+        </div>
+        <audio src="assets/audio/dont-take-my-kindness-for-weakness.mp3" preload="metadata"></audio>
+      </div>
+    </div>
+
+  </section>
+</main>
+
+<footer>
+  <p>&copy; <span id="year"></span> KLIMAX. All tracks self-released.</p>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

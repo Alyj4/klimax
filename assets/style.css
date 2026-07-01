@@ -1,0 +1,224 @@
+:root {
+  --black: #0a0a0a;
+  --black-2: #121212;
+  --red: #e10600;
+  --red-dim: #6e0300;
+  --white: #ededed;
+  --grey: #7a7a7a;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--red);
+  color: var(--black);
+}
+
+/* subtle noise/grain overlay for mystery */
+.noise {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    linear-gradient(160deg, rgba(225,6,0,0.12) 0%, transparent 45%),
+    radial-gradient(ellipse at 50% 30%, #1a1a1a 0%, var(--black) 70%);
+  border-bottom: 1px solid var(--red-dim);
+  overflow: hidden;
+}
+
+.hero-inner {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(4rem, 14vw, 10rem);
+  letter-spacing: 0.08em;
+  color: var(--white);
+  text-shadow:
+    0.06em 0 0 var(--red),
+    -0.03em 0 0 rgba(225,6,0,0.35);
+  line-height: 1;
+}
+
+.tagline {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+
+.hero-edge {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: var(--black);
+  clip-path: polygon(0 100%, 100% 100%, 100% 0, 85% 100%, 70% 20%, 55% 100%, 40% 30%, 25% 100%, 10% 40%, 0 100%);
+}
+
+/* ---------- TRACKS ---------- */
+main {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 5rem 1.5rem 6rem;
+}
+
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.2em;
+  font-size: 1.4rem;
+  color: var(--red);
+  margin-bottom: 2.5rem;
+  position: relative;
+  padding-left: 1rem;
+  border-left: 3px solid var(--red);
+}
+
+.track {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid #222;
+  position: relative;
+}
+
+.track:hover {
+  background: linear-gradient(90deg, rgba(225,6,0,0.06), transparent);
+}
+
+.track-index {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.2rem;
+  color: var(--red-dim);
+  min-width: 2.5ch;
+  transition: color 0.2s ease;
+}
+
+.track:hover .track-index {
+  color: var(--red);
+}
+
+.track-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.track-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  text-transform: none;
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.play-btn {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  background: transparent;
+  border: 1px solid var(--red);
+  color: var(--red);
+  cursor: pointer;
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 75% 100%, 0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, color 0.15s ease;
+  font-size: 0.75rem;
+}
+
+.play-btn:hover {
+  background: var(--red);
+  color: var(--black);
+}
+
+.play-btn .icon-pause { display: none; }
+.play-btn.playing .icon-play { display: none; }
+.play-btn.playing .icon-pause { display: inline; }
+
+.progress {
+  flex: 1;
+  height: 3px;
+  background: #262626;
+  position: relative;
+  cursor: pointer;
+}
+
+.progress-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  background: var(--red);
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 7px;
+  height: 7px;
+  background: var(--white);
+}
+
+.time {
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  color: var(--grey);
+  letter-spacing: 0.05em;
+  font-variant-numeric: tabular-nums;
+}
+
+.time-sep { margin: 0 0.15rem; opacity: 0.5; }
+
+/* ---------- FOOTER ---------- */
+footer {
+  text-align: center;
+  padding: 2.5rem 1.5rem 3rem;
+  color: var(--grey);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  border-top: 1px solid #1a1a1a;
+}
+
+@media (max-width: 480px) {
+  .track { gap: 0.85rem; }
+  .track-index { font-size: 1.6rem; }
+  .time { font-size: 0.65rem; }
+}
