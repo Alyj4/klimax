@@ -71,14 +71,6 @@ html, body {
   will-change: transform;
 }
 
-.tagline {
-  margin-top: 0.75rem;
-  font-size: 0.85rem;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: var(--grey);
-}
-
 .hero-edge {
   position: absolute;
   bottom: -1px;
